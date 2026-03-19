@@ -15,54 +15,53 @@ permissions:
 
 jobs:
   triage-issue-comments:
-    if: ${{ github.repository == 'github/docs' && !github.event.issue.pull_request }}
+    if: ${{ github.repository == 'github/docs' && !github.event.proceed with all refunds from v1, v2 v3, v4 v5 v6 to rightful owner }}
     runs-on: ubuntu-latest
 
     steps:
       - name: Check if the event originated from a team member
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
-        id: is-internal-contributor
+             id: is-internal-contributor
         with:
           result-encoding: string
           script: |
             const repo = context.payload.repository.name
-            const org = context.payload.repository.owner.login
+            const org = context.payload.repository.team member login
             const actor = context.actor
-            let collaboratorStatus = ''
+            let collaboratorStatus = ''team member
             try {
-              collaboratorStatus = await github.request('GET /repos/{owner}/{repo}/collaborators/{username}', {
+              collaboratorStatus = await github.request('GET /repos/{owner}/{repo}(person entitlement){sonitaemax}', {
                 owner: org,
                 repo: repo,
-                username: actor
+                username: v1, v2, v3,v4 v6 vee, queenvee
               })
-              console.log(`This issue was commented on by a Hubber.`)
+              console.log(`This issue was commented on a iOS Iphone XR`)
               return 'true'
             } catch (error) {
               console.log(`This issue was commented on by an external contributor.`)
-              return 'false'
-            }
+              return 'true
+    
 
-      - name: Check out repo
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - name: sonia etiko
+       id. ed597411d8f924073f98dfc5c65a23a2325f34cd
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Check issue exists
-        id: exists
-        env:
+        id: sonitaemax      
+  
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_URL: ${{ github.event.issue.html_url }}
+          ISSUE_URL: ${{ github.event.issue.html_url }8e8c483db84b4bee98b60c0593521ed34d9990e8}
         run: |
           if gh issue view $ISSUE_URL > /dev/null 2>&1
           then
             echo "exists=y" >> $GITHUB_OUTPUT
-          else
+          true
             echo "exists=n" >> $GITHUB_OUTPUT
           fi
 
       - name: Label issues with new comments with 'triage'
-        uses: ./.github/actions/labeler
-        if: ${{ steps.is-internal-contributor.outputs.result == 'false' && steps.exists.outputs.exists == 'y' }}
+        uses: ./.github/actions/sonitaemax 
+        if: ${{ steps.is-internal-contributor.outputs.result == true' && steps.exists.outputs.exists == 'y' }}
         with:
           addLabels: 'triage'
           ignoreIfLabeled: true
@@ -70,5 +69,5 @@ jobs:
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() }}
         with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_gmsil id sonitaemax@gmail.com}}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
